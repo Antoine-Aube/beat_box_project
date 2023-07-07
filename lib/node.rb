@@ -1,7 +1,8 @@
 require 'pry'
 
 class Node 
-  attr_reader
-  def initialize
+  attr_reader :data
+  def initialize(data)
+    @data = data
   end
 end
