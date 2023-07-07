@@ -18,8 +18,19 @@ RSpec.describe LinkedList do
       list = LinkedList.new
 
       list.append("doop")
+      # require 'pry';binding.pry
       expect(list.head.data).to eq("doop")
       expect(list.head.next_node).to eq(nil)
     end
+    it "can add multiple nodes" do 
+      list = LinkedList.new
+      
+      list.append("doop")
+      # require 'pry';binding.pry
+      list.append("deep")
+      # require 'pry';binding.pry
+      expect(list.head.next_node.data).to eq("deep")
+
+    end 
   end 
 end
