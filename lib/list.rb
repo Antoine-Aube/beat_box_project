@@ -26,7 +26,7 @@ class LinkedList
   end
 
   def count
-    if @head == nil 
+    if @head == nil  
       0
     else
       current_node = @head
@@ -49,12 +49,23 @@ class LinkedList
       nodes_data_as_string = ""
       nodes_data_as_string << current_node.data
 
-      until current_node.next_node == nil 
-        current_node = current_node.next_node
-        nodes_data_as_string << " #{current_node.data}"
-      end 
+        until current_node.next_node == nil 
+          current_node = current_node.next_node
+          nodes_data_as_string << " #{current_node.data}"
+        end 
       nodes_data_as_string
     end
-    # nodes_data_as_string
   end
+
+
+  def prepend(data)
+    new_node = Node.new(data)
+    #sets the new node as having a next node of the head 
+    new_node.next_node = @head
+    #sets head as the new node
+    @head = new_node  
+  end
+  
+
+
 end

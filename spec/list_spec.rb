@@ -58,5 +58,20 @@ RSpec.describe LinkedList do
       list.append("dip")
       expect(list.to_string).to eq("doop deep dip")
     end
+  end
+  describe "iteration_2" do  
+    it "has a prepend method" do 
+      list = LinkedList.new
+      # list.prepend("dop")
+      # require 'pry';binding.pry
+      # expect(list.to_string).to eq("dop")
+      list.append("plop")
+      list.append("suu")
+      
+      expect(list.to_string).to eq("plop suu")
+      list.prepend("dop")
+      require 'pry';binding.pry
+      expect(list.to_string).to eq("dop plop suu")
+    end
   end 
 end
