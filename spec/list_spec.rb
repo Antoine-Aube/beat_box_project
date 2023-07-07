@@ -8,7 +8,11 @@ RSpec.describe LinkedList do
       list = LinkedList.new
 
       expect(list).to be_a(LinkedList)
-    end 
-  end
+    end
+     it "head returns nil" do 
+     list = LinkedList.new
 
+     expect(list.head).to eq(nil)
+    end
+  end 
 end

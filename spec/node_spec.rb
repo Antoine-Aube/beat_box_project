@@ -1,5 +1,5 @@
 require 'pry'
-require 'node.rb'
+require './lib/node.rb'
 
 RSpec.describe Node do 
   describe '#intialize' do
