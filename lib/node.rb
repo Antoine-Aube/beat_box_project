@@ -8,6 +8,3 @@ class Node
   end
 end
 
-random 
-
-make a few more changes
