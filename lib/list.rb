@@ -7,16 +7,21 @@ class LinkedList
   end
 
   def append(data)
+    new_node = Node.new(data)
     if @head.nil? 
-      @head = Node.new(data)
+      @head = new_node
     else
+      #if the head is not nil, we create a variable that set the head(which has a node in it) to be the "current node"
       current_node = @head
 
+      #we need to walk through th e list, so a loop that has the condition of until the current nodes -> next node == nil
+      # in this loop, while the current nodes next node DOES NOT equal NIL
+      # we will set the current node = 
       until current_node.next_node == nil 
         current_node = current_node.next_node
       end
 
-      current_node.next_node = Node.new(data)
+      current_node.next_node = new_node
     end
   end
 end

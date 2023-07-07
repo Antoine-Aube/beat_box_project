@@ -30,7 +30,14 @@ RSpec.describe LinkedList do
       list.append("deep")
       # require 'pry';binding.pry
       expect(list.head.next_node.data).to eq("deep")
-
+    end 
+    it "can add more than two nodes to the list" do 
+      list = LinkedList.new
+      
+      list.append("doop")
+      list.append("deep")
+      list.append("dip")
+      expect(list.head.next_node.next_node.data).to eq("dip")
     end 
   end 
 end
