@@ -37,7 +37,18 @@ RSpec.describe LinkedList do
       list.append("doop")
       list.append("deep")
       list.append("dip")
+      # require 'pry';binding.pry
       expect(list.head.next_node.next_node.data).to eq("dip")
-    end 
+    end
+    it "has a counter that counts the amount of nodes in the list" do
+      list = LinkedList.new
+      expect(list.count).to eq(0)
+      # require 'pry';binding.pry
+      list.append("doop")
+      list.append("deep")
+      list.append("dip")
+      require 'pry';binding.pry
+      expect(list.count).to eq(3)
+    end
   end 
 end

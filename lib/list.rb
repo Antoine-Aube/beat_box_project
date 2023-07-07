@@ -17,11 +17,25 @@ class LinkedList
       #we need to walk through th e list, so a loop that has the condition of until the current nodes -> next node == nil
       # in this loop, while the current nodes next node DOES NOT equal NIL
       # we will set the current node = 
-      until current_node.next_node == nil 
-        current_node = current_node.next_node
-      end
+        until current_node.next_node == nil 
+          current_node = current_node.next_node
+        end
 
       current_node.next_node = new_node
+    end
+  end
+  def count
+    if @head == nil 
+      0
+    else
+      current_node = @head
+      node_counter = 1
+
+        until current_node.next_node == nil 
+          current_node = current_node.next_node
+          node_counter += 1
+        end
+      node_counter
     end
   end
 end
