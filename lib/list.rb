@@ -24,6 +24,7 @@ class LinkedList
       current_node.next_node = new_node
     end
   end
+
   def count
     if @head == nil 
       0
@@ -37,5 +38,23 @@ class LinkedList
         end
       node_counter
     end
+  end
+
+  def to_string
+    # nodes_data_as_string = ""
+    if @head == nil
+      nil 
+    else 
+      current_node = @head
+      nodes_data_as_string = ""
+      nodes_data_as_string << current_node.data
+
+      until current_node.next_node == nil 
+        current_node = current_node.next_node
+        nodes_data_as_string << " #{current_node.data}"
+      end 
+      nodes_data_as_string
+    end
+    # nodes_data_as_string
   end
 end

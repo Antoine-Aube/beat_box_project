@@ -47,8 +47,16 @@ RSpec.describe LinkedList do
       list.append("doop")
       list.append("deep")
       list.append("dip")
-      require 'pry';binding.pry
+      # require 'pry';binding.pry
       expect(list.count).to eq(3)
+    end
+    it "has a method which return the list node data as a string" do 
+      list = LinkedList.new
+      # require 'pry';binding.pry
+      list.append("doop")
+      list.append("deep")
+      list.append("dip")
+      expect(list.to_string).to eq("doop deep dip")
     end
   end 
 end
