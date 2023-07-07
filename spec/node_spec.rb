@@ -8,12 +8,16 @@ RSpec.describe Node do
       node_1 = Node.new("bleep")
       expect(node_1).to be_a(Node)
     end
-  end
-end
- RSpec.describe Node do
+
     it "has a data" do
       node_1 = Node.new("plop")
 
-      expect(node_1.data).to eq("plop")    
+      expect(node_1.data).to eq("plop") 
+    end 
+    it "return next node value" do 
+      node_1 = Node.new("sskat")
+
+      expect(node_1.next_node).to eq(nil)
     end
+  end 
 end
