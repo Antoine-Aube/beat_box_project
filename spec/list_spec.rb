@@ -59,6 +59,11 @@ RSpec.describe LinkedList do
       list.append("dip")
       expect(list.to_string).to eq("doop deep dip")
     end
+    it "will return a string if the list is empty" do 
+      list = LinkedList.new
+
+      expect(list.to_string).to eq("This is an empty list")
+    end
   end
   describe "iteration_2" do  
     it "has a prepend method" do 
@@ -85,8 +90,51 @@ RSpec.describe LinkedList do
       list.insert(1, "woo")
       # require 'pry';binding.pry
       expect(list.to_string).to eq("dop woo plop suu")
+    end
+    it "has a find method that take a position argument and number of elements" do 
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.to_string).to eq("deep woo shi shu blop")
+      # require 'pry';binding.pry
+      expect(list.find(2, 1)).to eq("shi")
+      # require 'pry';binding.pry
+      expect(list.find(1, 3)).to eq("woo shi shu")
+      # require 'pry';binding.pry
+      expect(list.find(3, 2))
+    end
+    it "has an includes method that returns boolean" do 
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+      # list.append("Johnny Deep")
+      
+      expect(list.to_string).to eq("deep woo shi shu blop")
+      expect(list.includes?("dep")).to eq false
+      # require 'pry';binding.pry
+      expect(list.includes?("deep")).to eq true 
+      expect(list.includes?("Johnny Deep")).to eq false
+    end
+    it "has a pop method that return the last element and removes it" do 
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.to_string).to eq("deep woo shi shu blop")
+      expect(list.pop).to eq("blop")
+      expect(list.pop).to eq("shu")
+      require 'pry';binding.pry
 
     end
-    
   end 
 end
