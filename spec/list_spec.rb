@@ -30,6 +30,7 @@ RSpec.describe LinkedList do
       list.append("deep")
       # require 'pry';binding.pry
       expect(list.head.next_node.data).to eq("deep")
+      # require 'pry';binding.pry
     end 
     it "can add more than two nodes to the list" do 
       list = LinkedList.new
@@ -70,8 +71,22 @@ RSpec.describe LinkedList do
       
       expect(list.to_string).to eq("plop suu")
       list.prepend("dop")
-      require 'pry';binding.pry
+      # require 'pry';binding.pry
       expect(list.to_string).to eq("dop plop suu")
+      expect(list.count).to eq(3)
     end
+    
+    it "has an insert method that takes two arguments: index and data" do 
+      list = LinkedList.new
+      list.append("plop")
+      list.append("suu")
+      list.prepend("dop")
+      # require 'pry';binding.pry
+      list.insert(1, "woo")
+      # require 'pry';binding.pry
+      expect(list.to_string).to eq("dop woo plop suu")
+
+    end
+    
   end 
 end

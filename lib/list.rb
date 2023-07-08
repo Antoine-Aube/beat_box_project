@@ -18,6 +18,8 @@ class LinkedList
       # in this loop, while the current nodes next node DOES NOT equal NIL
       # we will set the current node = 
         until current_node.next_node == nil 
+          #previous_node = current_node
+          #current_node = previous_node.next_node
           current_node = current_node.next_node
         end
 
@@ -30,13 +32,13 @@ class LinkedList
       0
     else
       current_node = @head
-      node_counter = 1
+      node_count = 1
 
         until current_node.next_node == nil 
           current_node = current_node.next_node
-          node_counter += 1
+          node_count += 1
         end
-      node_counter
+      node_count
     end
   end
 
@@ -66,6 +68,26 @@ class LinkedList
     @head = new_node  
   end
   
-
+  #going to essentially prepend whichever node index we call 
+  #will probs use the count method
+  def insert(index, data)
+    new_node = Node.new(data)
+    if index == 0
+      new_node.next_node = @head
+      @head = new_node
+    else
+      current_node = @head
+      node_count = 1
+      # require 'pry';binding.pry
+        #ran into a big issue with this where I was comparing the index using < rather than >. Note #to self, while using the until loop - make sure to check your logic
+        until node_count >= index || current_node.next_node == nil
+          current_node = current_node.next_node 
+          node_count += 1
+        end
+      # new_node = Node.new(data)
+      new_node.next_node = current_node.next_node
+      current_node.next_node = new_node
+    end
+  end
 
 end
