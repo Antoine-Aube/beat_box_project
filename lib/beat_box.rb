@@ -16,5 +16,7 @@ class BeatBox
     #more methods reused!
     @list.count
   end
-
+  def play
+    `say -r 100 -v Alex #{self.list.to_string} `
+  end
 end

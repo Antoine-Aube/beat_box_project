@@ -29,8 +29,20 @@ RSpec.describe BeatBox do
       beat_box.append("deep doo ditt")
       beat_box.append("woo hoo shu")
       expect(beat_box.list.to_string).to eq("deep doo ditt woo hoo shu")
-      require 'pry';binding.pry
+      # requiradde 'pry';binding.pry
       expect(beat_box.count).to eq(6)
     end 
+    it "has a method to play the sounds" do 
+      beat_box = BeatBox.new
+      
+      beat_box.append("deep doo ditt")
+      beat_box.append("woo hoo shu shibby shibby sling")
+      expect(beat_box.count).to eq(9)
+      expect(beat_box.list.count).to eq(9)
+      beat_box.play
+      # require 'pry';binding.pry
+      # expect(beat_box.play).to eq(`say -r 100 -v Alex deep doo ditt woo hoo shu`)
+      #for some reason play sound three times when I do a test for it on line 44
+    end
   end
 end
