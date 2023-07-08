@@ -29,6 +29,8 @@ RSpec.describe BeatBox do
       beat_box.append("deep doo ditt")
       beat_box.append("woo hoo shu")
       expect(beat_box.list.to_string).to eq("deep doo ditt woo hoo shu")
+      require 'pry';binding.pry
+      expect(beat_box.count).to eq(6)
     end 
   end
 end

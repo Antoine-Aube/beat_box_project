@@ -12,5 +12,9 @@ class BeatBox
     #a pain in the ass to build!
     data_strings_array.each {|sound| @list.append(sound)}
   end
+  def count
+    #more methods reused!
+    @list.count
+  end
 
 end
