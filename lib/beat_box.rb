@@ -6,6 +6,11 @@ class BeatBox
   def initialize
     @list = LinkedList.new
   end
+  def append(data)
+    data_strings_array = data.split
+    #yay we get to reuse the append method from list class that was 
+    #a pain in the ass to build!
+    data_strings_array.each {|sound| @list.append(sound)}
+  end
 
-  
 end
