@@ -145,6 +145,8 @@ class LinkedList
       #set the second to last element.next_node to nil
       #under the hood...does this actually remove the last node? 
       #Or are we just modifying the second to last object to 
+          #after running a pry at the end of my last test, the list
+          #object is mutated and does not include popped node objects
     end
   end
 end
