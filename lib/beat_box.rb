@@ -17,6 +17,6 @@ class BeatBox
     @list.count
   end
   def play
-    `say -r 100 -v Ralph Voice 1 #{self.list.to_string} `
+    `say -r 100 -v Boing Voice 1 #{self.list.to_string} `
   end
 end
