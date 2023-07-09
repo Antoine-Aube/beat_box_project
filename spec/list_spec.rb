@@ -134,7 +134,7 @@ RSpec.describe LinkedList do
       expect(list.pop).to eq("blop")
       expect(list.pop).to eq("shu")
 
-      require 'pry';binding.pry
+      # require 'pry';binding.pry
     end
   end 
 end
