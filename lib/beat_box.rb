@@ -19,4 +19,4 @@ class BeatBox
   def play
     `say -r 100 -v Boing Voice 1 #{self.list.to_string} `
   end
-end
+end 

@@ -14,7 +14,7 @@ class LinkedList
       #if the head is not nil, we create a variable that set the head(which has a node in it) to be the "current node"
       current_node = @head
 
-      #we need to walk through th e list, so a loop that has the condition of until the current nodes -> next node == nil
+      #we need to walk through the list, so a loop that has the condition of until the current nodes -> next node == nil
       # in this loop, while the current nodes next node DOES NOT equal NIL
       # we will set the current node = 
         until current_node.next_node == nil 
@@ -106,8 +106,11 @@ class LinkedList
       elements_string << current_node.data
       # require 'pry';binding.pry
       until elements_string.split(" ").length == elements
+        # require 'pry';binding.pry
         # elements_string << " #{current_node.data}"
         current_node = current_node.next_node
+        #the damn space infront of the interpolation sucked
+        #15 minutes away from my life I will never get back
         elements_string << " #{current_node.data}"
         # require 'pry';binding.pry
       end
@@ -115,13 +118,40 @@ class LinkedList
     end
   end
   def includes?(data)
-    if self.to_string.include?(data)
-      # require 'pry';binding.pry
-      true
-    else 
-      false
-    end
-  end
+    #after talking to joop, ed, and lane, they think that this is taking a shortcut
+    #but considering that the to_string method is already in my class, I figured it
+    #good to go?
+    # if self.to_string.include?(data)
+    #   # require 'pry';binding.pry
+    #   true
+    # else 
+    #   false
+    # end
+    #artemy from mod2 suggested I didn't need the conditional because the include?
+    #method implies a conditional
+    self.to_string.include?(data)
+    
+    #alternate method 
+    # current_node = @head
+    #   until  current_node.data == data || current_node.next_node == nil
+    #     current_node = current_node.next_node
+    #   end
+    #   current_node
+
+    #   if current_node.data == data
+    #     true
+    #   else 
+    #     false 
+    #   end
+    #Eds solution which is quite nice  
+    # current_node = @head
+    # while current_node
+    #   return true if
+    #   current_node.data == data
+    #   current_node = current_node.next_node
+    # end
+  end 
+
   def pop 
     if @head == nil 
       "This is an empty list"
@@ -133,20 +163,14 @@ class LinkedList
       end 
       last_node = current_node
       current_node = @head
-      
+      # require 'pry';binding.pry
       until current_node.next_node == last_node
         current_node = current_node.next_node
+      # require 'pry';binding.pry
       end
 
       current_node.next_node = nil
       last_node.data
-      # self.to_string.chomp(current_node.data)
-      #tried using this before realizing what I really needed to do is 
-      #set the second to last element.next_node to nil
-      #under the hood...does this actually remove the last node? 
-      #Or are we just modifying the second to last object to 
-          #after running a pry at the end of my last test, the list
-          #object is mutated and does not include popped node objects
     end
   end
 end

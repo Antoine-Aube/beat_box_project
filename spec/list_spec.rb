@@ -117,9 +117,10 @@ RSpec.describe LinkedList do
       # list.append("Johnny Deep")
       
       expect(list.to_string).to eq("deep woo shi shu blop")
-      expect(list.includes?("dep")).to eq false
       # require 'pry';binding.pry
-      expect(list.includes?("deep")).to eq true 
+      expect(list.includes?("dep")).to eq false
+      expect(list.includes?("deep")).to eq true
+      expect(list.includes?("shi")).to eq true 
       expect(list.includes?("Johnny Deep")).to eq false
     end
     it "has a pop method that return the last element and removes it" do 
