@@ -11,17 +11,18 @@ RSpec.describe LinkedList do
     end
      it "head returns nil" do 
      list = LinkedList.new
-     
+
      expect(list.head).to eq(nil)
     end
+
     it "has an append method that adds a new node to end of list" do 
       list = LinkedList.new
-
       list.append("doop")
       # require 'pry';binding.pry
       expect(list.head.data).to eq("doop")
       expect(list.head.next_node).to eq(nil)
     end
+
     it "can add multiple nodes" do 
       list = LinkedList.new
       
@@ -32,15 +33,16 @@ RSpec.describe LinkedList do
       expect(list.head.next_node.data).to eq("deep")
       # require 'pry';binding.pry
     end 
+
     it "can add more than two nodes to the list" do 
       list = LinkedList.new
-      
       list.append("doop")
       list.append("deep")
       list.append("dip")
       # require 'pry';binding.pry
       expect(list.head.next_node.next_node.data).to eq("dip")
     end
+
     it "has a counter that counts the amount of nodes in the list" do
       list = LinkedList.new
       expect(list.count).to eq(0)
@@ -51,20 +53,24 @@ RSpec.describe LinkedList do
       # require 'pry';binding.pry
       expect(list.count).to eq(3)
     end
+
     it "has a method which return the list node data as a string" do 
       list = LinkedList.new
       # require 'pry';binding.pry
       list.append("doop")
       list.append("deep")
       list.append("dip")
+
       expect(list.to_string).to eq("doop deep dip")
     end
+
     it "will return a string if the list is empty" do 
       list = LinkedList.new
 
       expect(list.to_string).to eq("This is an empty list")
     end
   end
+
   describe "iteration_2" do  
     it "has a prepend method" do 
       list = LinkedList.new
@@ -91,6 +97,7 @@ RSpec.describe LinkedList do
       # require 'pry';binding.pry
       expect(list.to_string).to eq("dop woo plop suu")
     end
+    
     it "has a find method that take a position argument and number of elements" do 
       list = LinkedList.new
       list.append("deep")
@@ -107,6 +114,7 @@ RSpec.describe LinkedList do
       # require 'pry';binding.pry
       expect(list.find(3, 2))
     end
+
     it "has an includes method that returns boolean" do 
       list = LinkedList.new
       list.append("deep")
@@ -123,6 +131,7 @@ RSpec.describe LinkedList do
       expect(list.includes?("shi")).to eq true 
       expect(list.includes?("Johnny Deep")).to eq false
     end
+
     it "has a pop method that return the last element and removes it" do 
       list = LinkedList.new
       list.append("deep")
@@ -134,7 +143,6 @@ RSpec.describe LinkedList do
       expect(list.to_string).to eq("deep woo shi shu blop")
       expect(list.pop).to eq("blop")
       expect(list.pop).to eq("shu")
-
       # require 'pry';binding.pry
     end
   end 

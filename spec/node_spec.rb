@@ -14,6 +14,7 @@ RSpec.describe Node do
 
       expect(node_1.data).to eq("plop") 
     end 
+    
     it "returns next node value" do 
       node_1 = Node.new("sskat")
 
