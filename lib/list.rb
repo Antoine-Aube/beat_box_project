@@ -61,6 +61,9 @@ class LinkedList
 
 
   def prepend(data)
+    # if validate_input(data) == false 
+    #   return 
+    # end
     #creates new note with the data passed as an argument to prepend
     new_node = Node.new(data)
     #sets the new node as having a next node of the head 
@@ -95,8 +98,10 @@ class LinkedList
     end
   end
   def find(index, elements)
-    if self.count == 0
+    if count == 0
       "This is an empty list"
+    elsif count < index
+      "The list is shorter than the position you are searching for"
     else 
       current_node = @head
       index_counter = 0
@@ -175,4 +180,13 @@ class LinkedList
       last_node.data
     end
   end
+  # Tried this per Allan's suggestion but haven't gotten it to work yet. 
+  # Will implement in append and prepend if possible 
+  # def validate_input(data)
+  #   valid_sounds = ["tee", "dee", "deep", "bop", "boop", "la", "na", "woo", "shi", "shu", "blop", "suu", "plop", "dop", "dip", "doop"]
+
+  #   valid_input = valid_sounds.any? do |sound|
+  #     true if sound == data
+  #   end
+  # end
 end
