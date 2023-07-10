@@ -76,13 +76,26 @@ RSpec.describe BeatBox do
       beat_box.play
     end
     
-    it "can change voice" do 
+    xit "can change voice" do 
       beat_box = BeatBox.new
       beat_box.append("shee shee shaa shaa shoo")
 
       beat_box.change_voice("Ralph")
       beat_box.play
       beat_box.change_rate(100)
+      beat_box.play
+    end
+    it "can reset the voice to default and rate" do 
+      beat_box = BeatBox.new
+      beat_box.append("shee shee shaa shaa shoo")
+  
+      beat_box.change_voice("Ralph")
+      beat_box.play
+      beat_box.change_rate(100)
+      beat_box.play
+      beat_box.reset_voice
+      beat_box.play
+      beat_box.reset_rate
       beat_box.play
     end
   end

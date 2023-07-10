@@ -48,6 +48,14 @@ class BeatBox
     @voice = new_voice
   end
 
+  def reset_voice
+    @voice = "Boing"
+  end
+
+  def reset_rate
+    @rate = 500 
+  end
+
   def play
     `say -r #{@rate} -v #{@voice} Voice 1 #{self.list.to_string} `
   end
