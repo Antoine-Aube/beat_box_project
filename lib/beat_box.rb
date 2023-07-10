@@ -23,7 +23,6 @@ class BeatBox
 
   def all
     valid_inputs = ["tee", "dee", "deep", "bop", "boop", "la", "na"]
-    # require 'pry';binding.pry
     list_to_check = @list.to_string.split
     accepted_list = []
     # list_to_check.each do |sound|
