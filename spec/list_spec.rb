@@ -96,6 +96,9 @@ RSpec.describe LinkedList do
       list.insert(1, "woo")
       # require 'pry';binding.pry
       expect(list.to_string).to eq("dop woo plop suu")
+      #edge case test
+      list.insert(7, "shibby")
+      expect(list.insert(7, "shibby")).to eq ("List is too short to insert at that index")
     end
     
     it "has a find method that take a position argument and number of elements" do 
