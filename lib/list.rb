@@ -8,7 +8,7 @@ class LinkedList
 
   def append(data)
     new_node = Node.new(data)
-    if @head.nil? 
+    if @head == nil 
       @head = new_node
     else
       #if the head is not nil, we create a variable that set the head(which has a node in it) to be the "current node"
@@ -74,7 +74,9 @@ class LinkedList
   #will probs use the count method
   def insert(index, data)
     new_node = Node.new(data)
-    if index == 0
+    if count < index
+      "List is too short to insert at that index"
+    elsif index == 0
       #can probably use prepend or append here to refactor?
       new_node.next_node = @head
       @head = new_node
