@@ -33,6 +33,8 @@ class BeatBox
     #refactored version
     list_to_check.each { |sound| accepted_list << sound if valid_inputs.include?(sound) }
     accepted_list.join(" ")
+    #the issue with this is that I'm returning a new array rather than mutating the old one
+    #revisit perhaps if there's time
   end
 
   def count
