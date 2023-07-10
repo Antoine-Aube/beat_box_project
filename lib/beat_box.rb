@@ -57,6 +57,6 @@ class BeatBox
   end
 
   def play
-    `say -r #{@rate} -v #{@voice} Voice 1 #{self.list.to_string} `
+    `say -r #{@rate} -v #{@voice} #{self.list.to_string} `
   end
 end 
