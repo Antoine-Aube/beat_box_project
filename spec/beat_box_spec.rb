@@ -67,5 +67,13 @@ RSpec.describe BeatBox do
       beat_box.prepend("boop Astronaut la")
       expect(beat_box.all).to eq("boop la deep")
     end
+
+    it "can change rate" do 
+      beat_box = BeatBox.new
+      beat_box.append("shee shee shaa shaa shoo")
+      require 'pry';binding.pry
+      beat_box.change_rate(50)
+      beat_box.play
+    end
   end
 end

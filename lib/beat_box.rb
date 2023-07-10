@@ -5,6 +5,8 @@ class BeatBox
   attr_reader :list
   def initialize
     @list = LinkedList.new
+    @rate = 500 
+    @voice = "Boing"
   end
 
   def append(data)
@@ -33,13 +35,21 @@ class BeatBox
     list_to_check.each { |sound| accepted_list << sound if valid_inputs.include?(sound) }
     accepted_list.join(" ")
   end
-  
+
   def count
     #more methods reused!
     @list.count
   end
 
+  def change_rate(new_rate)
+    @rate = new_rate
+  end
+
+  def change_voice(new_voice)
+    @voice = new_voice
+  end
+
   def play
-    `say -r 100 -v Boing Voice 1 #{self.list.to_string} `
+    `say -r #{@rate} -v #{@voice} Voice 1 #{self.list.to_string} `
   end
 end 
