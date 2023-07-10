@@ -27,19 +27,15 @@ class BeatBox
   end
 
   def all
+    # @list.to_string
+    #this does not mutate the actual list but return the array at the end so doesn't
+    #actually do what I want it to - working on a helper method within the list class
+    #that will actually do this. 
     valid_inputs = ["tee", "dee", "deep", "bop", "boop", "la", "na"]
     list_to_check = @list.to_string.split
     accepted_list = []
-    # list_to_check.each do |sound|
-    #   if valid_inputs.include?(sound)
-    #     accepted_list << sound
-    #   end 
-    # end
-    #refactored version
     list_to_check.each { |sound| accepted_list << sound if valid_inputs.include?(sound) }
     accepted_list.join(" ")
-    #the issue with this is that I'm returning a new array rather than mutating the old one
-    #revisit perhaps if there's time
   end
 
   def count
