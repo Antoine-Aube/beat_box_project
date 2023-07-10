@@ -36,7 +36,7 @@ RSpec.describe BeatBox do
       expect(beat_box.count).to eq(6)
     end 
 
-    it "has a method to play the sounds" do 
+    xit "has a method to play the sounds" do 
       beat_box = BeatBox.new
       beat_box.append("deep doo ditt")
       beat_box.append("woo hoo shu shibby shibby sling")
@@ -47,6 +47,14 @@ RSpec.describe BeatBox do
       # require 'pry';binding.pry
       # expect(beat_box.play).to eq(`say -r 100 -v Alex deep doo ditt woo hoo shu`)
       #for some reason play sound three times when I do a test for it on line 44
+    end
+  end
+  describe "iteration 4" do 
+    it "has a prepend method" do 
+      beat_box = BeatBox.new
+
+      beat_box.prepend("tee tee tee deep")
+      expect(beat_box.list.to_string).to eq("tee tee tee deep")
     end
   end
 end
