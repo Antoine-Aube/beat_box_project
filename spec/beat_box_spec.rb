@@ -56,5 +56,16 @@ RSpec.describe BeatBox do
       beat_box.prepend("tee tee tee deep")
       expect(beat_box.list.to_string).to eq("tee tee tee deep")
     end
+
+    it "has an all method that checks qualified inputs" do 
+      beat_box = BeatBox.new
+      beat_box.append("deep Mississippi Slagg")
+
+      # require 'pry';binding.pry
+      expect(beat_box.all).to eq("deep")
+
+      beat_box.prepend("boop Astronaut la")
+      expect(beat_box.all).to eq("boop la deep")
+    end
   end
 end

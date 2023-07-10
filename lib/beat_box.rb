@@ -20,8 +20,20 @@ class BeatBox
   end
 
   def all
-    accepted_inputs = ["tee", "dee", "deep", "bop", "boop", "la", "na"]
+    valid_inputs = ["tee", "dee", "deep", "bop", "boop", "la", "na"]
+    # require 'pry';binding.pry
+    list_to_check = @list.to_string.split
+    accepted_list = []
+    # list_to_check.each do |sound|
+    #   if valid_inputs.include?(sound)
+    #     accepted_list << sound
+    #   end 
+    # end
+    #refactored version
+    list_to_check.each { |sound| accepted_list << sound if valid_inputs.include?(sound) }
+    accepted_list.join(" ")
   end
+  
   def count
     #more methods reused!
     @list.count
