@@ -3,10 +3,15 @@ require_relative 'list.rb'
 
 class BeatBox
   attr_reader :list
-  def initialize
+  def initialize(beat = nil)
+    #passing a default value makes it so that you don't need to 
+    #pass anything when instantiating an object
     @list = LinkedList.new
     @rate = 500 
     @voice = "Boing"
+    if beat != nil 
+      prepend(beat)
+    end
   end
 
   def append(data)

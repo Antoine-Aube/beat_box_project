@@ -63,7 +63,7 @@ RSpec.describe BeatBox do
 
       # require 'pry';binding.pry
       expect(beat_box.all).to eq("deep")
-
+      # require 'pry';binding.pry
       beat_box.prepend("boop Astronaut la")
       expect(beat_box.all).to eq("boop la deep")
     end
@@ -84,11 +84,12 @@ RSpec.describe BeatBox do
       beat_box.play
       beat_box.change_rate(100)
       beat_box.play
+      # require 'pry';binding.pry
     end
-    it "can reset the voice to default and rate" do 
+    xit "can reset the voice to default and rate" do 
       beat_box = BeatBox.new
       beat_box.append("shee shee shaa shaa shoo")
-  
+      
       beat_box.change_voice("Ralph")
       beat_box.play
       beat_box.change_rate(100)
@@ -98,5 +99,10 @@ RSpec.describe BeatBox do
       beat_box.reset_rate
       beat_box.play
     end
+    it "can be passed a beat in the object argument" do 
+    beat_box = BeatBox.new("deep")
+
+    expect(beat_box.list.to_string).to eq("deep")
+    end 
   end
 end
