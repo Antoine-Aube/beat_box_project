@@ -116,6 +116,8 @@ RSpec.describe LinkedList do
       expect(list.find(1, 3)).to eq("woo shi shu")
       # require 'pry';binding.pry
       expect(list.find(3, 2))
+      #edge case testing
+      expect(list.find(100, 1)).to eq("The list is shorter than the position you are searching for")
     end
 
     it "has an includes method that returns boolean" do 

@@ -95,8 +95,10 @@ class LinkedList
     end
   end
   def find(index, elements)
-    if self.count == 0
+    if count == 0
       "This is an empty list"
+    elsif count < index
+      "The list is shorter than the position you are searching for"
     else 
       current_node = @head
       index_counter = 0
