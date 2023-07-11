@@ -3,35 +3,33 @@ require './lib/list.rb'
 require './lib/node.rb'
 
 RSpec.describe LinkedList do 
-  describe '#intialize' do
+  describe 'iteration_1' do
     it "exists and has a head instance variable" do 
       list = LinkedList.new
 
       expect(list).to be_a(LinkedList)
     end
-     it "head returns nil" do 
-     list = LinkedList.new
 
-     expect(list.head).to eq(nil)
+     it "head returns nil" do 
+       list = LinkedList.new
+
+       expect(list.head).to eq(nil)
     end
 
     it "has an append method that adds a new node to end of list" do 
       list = LinkedList.new
       list.append("doop")
-      # require 'pry';binding.pry
+
       expect(list.head.data).to eq("doop")
       expect(list.head.next_node).to eq(nil)
     end
 
     it "can add multiple nodes" do 
       list = LinkedList.new
-      
       list.append("doop")
-      # require 'pry';binding.pry
       list.append("deep")
-      # require 'pry';binding.pry
+
       expect(list.head.next_node.data).to eq("deep")
-      # require 'pry';binding.pry
     end 
 
     it "can add more than two nodes to the list" do 
@@ -39,24 +37,24 @@ RSpec.describe LinkedList do
       list.append("doop")
       list.append("deep")
       list.append("dip")
-      # require 'pry';binding.pry
+
       expect(list.head.next_node.next_node.data).to eq("dip")
     end
 
     it "has a counter that counts the amount of nodes in the list" do
       list = LinkedList.new
+
       expect(list.count).to eq(0)
-      # require 'pry';binding.pry
+
       list.append("doop")
       list.append("deep")
       list.append("dip")
-      # require 'pry';binding.pry
+
       expect(list.count).to eq(3)
     end
 
     it "has a method which return the list node data as a string" do 
       list = LinkedList.new
-      # require 'pry';binding.pry
       list.append("doop")
       list.append("deep")
       list.append("dip")
@@ -74,15 +72,11 @@ RSpec.describe LinkedList do
   describe "iteration_2" do  
     it "has a prepend method" do 
       list = LinkedList.new
-      # list.prepend("dop")
-      # require 'pry';binding.pry
-      # expect(list.to_string).to eq("dop")
       list.append("plop")
       list.append("suu")
       
       expect(list.to_string).to eq("plop suu")
       list.prepend("dop")
-      # require 'pry';binding.pry
       expect(list.to_string).to eq("dop plop suu")
       expect(list.count).to eq(3)
     end
@@ -92,12 +86,9 @@ RSpec.describe LinkedList do
       list.append("plop")
       list.append("suu")
       list.prepend("dop")
-      # require 'pry';binding.pry
       list.insert(1, "woo")
-      # require 'pry';binding.pry
       expect(list.to_string).to eq("dop woo plop suu")
-      #edge case test
-      list.insert(7, "shibby")
+      list.insert(7, "shibby") #edge case test
       expect(list.insert(7, "shibby")).to eq ("List is too short to insert at that index")
     end
     
@@ -110,11 +101,8 @@ RSpec.describe LinkedList do
       list.append("blop")
 
       expect(list.to_string).to eq("deep woo shi shu blop")
-      # require 'pry';binding.pry
       expect(list.find(2, 1)).to eq("shi")
-      # require 'pry';binding.pry
       expect(list.find(1, 3)).to eq("woo shi shu")
-      # require 'pry';binding.pry
       expect(list.find(3, 2))
       #edge case testing
       expect(list.find(100, 1)).to eq("The list is shorter than the position you are searching for")
@@ -127,10 +115,9 @@ RSpec.describe LinkedList do
       list.append("shi")
       list.append("shu")
       list.append("blop")
-      # list.append("Johnny Deep")
+      list.append("Johnny Deep")
       
       expect(list.to_string).to eq("deep woo shi shu blop")
-      # require 'pry';binding.pry
       expect(list.includes?("dep")).to eq false
       expect(list.includes?("deep")).to eq true
       expect(list.includes?("shi")).to eq true 
@@ -148,7 +135,6 @@ RSpec.describe LinkedList do
       expect(list.to_string).to eq("deep woo shi shu blop")
       expect(list.pop).to eq("blop")
       expect(list.pop).to eq("shu")
-      # require 'pry';binding.pry
     end
   end 
 end
