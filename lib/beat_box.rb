@@ -8,38 +8,38 @@ class BeatBox
     #pass anything when instantiating an object
     @list = LinkedList.new
     @rate = 500 
-    @voice = "Boing"
-    if beat != nil 
-      prepend(beat)
-    end
+    @voice = "Boing" 
+    append(beat) if beat != nil 
   end
 
   def append(data)
+    #add a conditional inside the do block with an instance varibale that had approved sounds
     data_strings_array = data.split
-    #yay we get to reuse the append method from list class that was 
-    #a pain in the ass to build!
     data_strings_array.each {|sound| @list.append(sound)}
+
+    # data_strings_array.each do |sound|
+    #   if @valid_inputs.include?(sound)
+    #     @list.append(sound)
+    #   end
+    # end
   end
 
   def prepend(data)
+    #gotta do reverse_each for the do bloc when you refactor for all method
     data_strings_array = data.split.reverse
     data_strings_array.each {|sound| @list.prepend(sound)}
+  #   data.split.reverse_each do |sound|
+  #     if @valid_inputs.include?(sound)
+  #       @list.prepend(sound)
+  #     end
+  #   end
   end
 
   def all
-    # @list.to_string
-    #this does not mutate the actual list but return the array at the end so doesn't
-    #actually do what I want it to - working on a helper method within the list class
-    #that will actually do this. 
-    valid_inputs = ["tee", "dee", "deep", "bop", "boop", "la", "na"]
-    list_to_check = @list.to_string.split
-    accepted_list = []
-    list_to_check.each { |sound| accepted_list << sound if valid_inputs.include?(sound) }
-    accepted_list.join(" ")
+    @list.to_string
   end
 
   def count
-    #more methods reused!
     @list.count
   end
 
@@ -60,6 +60,6 @@ class BeatBox
   end
 
   def play
-    `say -r #{@rate} -v #{@voice} #{self.list.to_string} `
+    `say -r #{@rate} -v #{@voice} #{@list.to_string} `
   end
 end 
