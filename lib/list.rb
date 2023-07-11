@@ -48,7 +48,7 @@ class LinkedList
 
         until current_node.next_node == nil 
           current_node = current_node.next_node
-          nodes_data_as_string << " " + current_node.data
+          nodes_data_as_string << " #{current_node.data}"
         end 
       nodes_data_as_string
     end
@@ -56,7 +56,7 @@ class LinkedList
 
   def prepend(data)
     if validate_input(data) == false 
-      return 
+      return  
     end
     
     new_node = Node.new(data) 
@@ -111,7 +111,7 @@ class LinkedList
     # alternate method but might not be kosher for this project because doesn't loop
     # self.to_string.include?(data)
     current_node = @head
-      until  current_node.data == data || current_node.next_node == nil
+      until current_node.data == data || current_node.next_node == nil
         current_node = current_node.next_node
       end
       current_node
@@ -148,11 +148,7 @@ class LinkedList
     valid_sounds = ["tee", "dee", "deep", "bop", "boop", "la", "na", "woo", "shi", "shu", "blop", "suu", "plop", "dop", "dip", "doop", "doo", "ditt", "hoo", "shibby", "sling", "shee", "shaa", "shoo"]
 
     valid_sounds.any? do |sound|
-      if sound == data
-        true
-      else
-        false 
-      end
-    end
+       sound == data
+     end
   end
 end

@@ -72,6 +72,8 @@ RSpec.describe BeatBox do
     it "can change rate" do 
       beat_box = BeatBox.new
       beat_box.append("shee shee shaa shaa shoo")
+      #I defined a method in the class in order to not use an attr_accessor
+      #as a small challenge so this doesn't follow interaction pattern exactly
       beat_box.change_rate(50)
       beat_box.play
     end
@@ -79,7 +81,8 @@ RSpec.describe BeatBox do
     it "can change voice" do 
       beat_box = BeatBox.new
       beat_box.append("shee shee shaa shaa shoo")
-
+      #I defined a method in the class in order to not use an attr_accessor
+      #as a small challenge so this doesn't follow interaction pattern exactly
       beat_box.change_voice("Ralph")
       beat_box.play
       beat_box.change_rate(100)
