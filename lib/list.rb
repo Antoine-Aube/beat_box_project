@@ -56,7 +56,7 @@ class LinkedList
 
   def prepend(data)
     if validate_input(data) == false 
-      return  
+      return   
     end
     
     new_node = Node.new(data) 
@@ -149,6 +149,6 @@ class LinkedList
 
     valid_sounds.any? do |sound|
        sound == data
-     end
+    end
   end
 end

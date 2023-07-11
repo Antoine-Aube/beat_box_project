@@ -10,8 +10,8 @@ RSpec.describe LinkedList do
       expect(list).to be_a(LinkedList)
     end
 
-     it "head returns nil" do 
-       list = LinkedList.new
+    it "head returns nil" do 
+      list = LinkedList.new
 
        expect(list.head).to eq(nil)
     end
@@ -76,7 +76,9 @@ RSpec.describe LinkedList do
       list.append("suu")
       
       expect(list.to_string).to eq("plop suu")
+
       list.prepend("dop")
+
       expect(list.to_string).to eq("dop plop suu")
       expect(list.count).to eq(3)
     end
@@ -87,8 +89,11 @@ RSpec.describe LinkedList do
       list.append("suu")
       list.prepend("dop")
       list.insert(1, "woo")
+
       expect(list.to_string).to eq("dop woo plop suu")
+
       list.insert(7, "shibby") #edge case test
+      
       expect(list.insert(7, "shibby")).to eq ("List is too short to insert at that index")
     end
     
