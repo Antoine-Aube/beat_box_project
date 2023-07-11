@@ -22,7 +22,6 @@ RSpec.describe BeatBox do
       beat_box.append("deep doo ditt")
       
       expect(beat_box.list.head.data).to eq("deep")
-      #  require 'pry';binding.pry
       expect(beat_box.list.head.next_node.data).to eq("doo")
     end
 
@@ -32,7 +31,6 @@ RSpec.describe BeatBox do
       beat_box.append("woo hoo shu")
 
       expect(beat_box.list.to_string).to eq("deep doo ditt woo hoo shu")
-      # requiradde 'pry';binding.pry
       expect(beat_box.count).to eq(6)
     end 
 
@@ -44,13 +42,16 @@ RSpec.describe BeatBox do
       expect(beat_box.count).to eq(9)
       expect(beat_box.list.count).to eq(9)
       beat_box.play
-      # require 'pry';binding.pry
-      # expect(beat_box.play).to eq(`say -r 100 -v Alex deep doo ditt woo hoo shu`)
-      #for some reason play sound three times when I do a test for it on line 44
     end
   end
 
   describe "iteration 4" do 
+    it "can be passed a beat in the object argument" do 
+      beat_box = BeatBox.new("deep")
+  
+      expect(beat_box.list.to_string).to eq("deep")
+    end 
+
     it "has a prepend method" do 
       beat_box = BeatBox.new
 
@@ -58,21 +59,19 @@ RSpec.describe BeatBox do
       expect(beat_box.list.to_string).to eq("tee tee tee deep")
     end
 
-    xit "has an all method that checks qualified inputs" do 
+    it "has an all method that checks qualified inputs" do 
       beat_box = BeatBox.new
       beat_box.append("deep Mississippi Slagg")
 
-      # require 'pry';binding.pry
       expect(beat_box.all).to eq("deep")
-      # require 'pry';binding.pry
       beat_box.prepend("boop Astronaut la")
       expect(beat_box.all).to eq("boop la deep")
+      beat_box.play
     end
 
     it "can change rate" do 
       beat_box = BeatBox.new
       beat_box.append("shee shee shaa shaa shoo")
-      # require 'pry';binding.pry
       beat_box.change_rate(50)
       beat_box.play
     end
@@ -85,13 +84,11 @@ RSpec.describe BeatBox do
       beat_box.play
       beat_box.change_rate(100)
       beat_box.play
-      # require 'pry';binding.pry
     end
 
     it "can reset the voice to default and rate" do 
       beat_box = BeatBox.new
       beat_box.append("shee shee shaa shaa shoo")
-      
       beat_box.change_voice("Ralph")
       beat_box.play
       beat_box.change_rate(100)
@@ -101,11 +98,5 @@ RSpec.describe BeatBox do
       beat_box.reset_rate
       beat_box.play
     end
-
-    it "can be passed a beat in the object argument" do 
-    beat_box = BeatBox.new("deep")
-
-    expect(beat_box.list.to_string).to eq("deep")
-    end 
   end
 end

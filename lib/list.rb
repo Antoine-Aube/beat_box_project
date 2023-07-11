@@ -7,6 +7,9 @@ class LinkedList
   end
 
   def append(data)
+    if validate_input(data) == false 
+      return 
+    end
     new_node = Node.new(data)
     if @head == nil 
       @head = new_node
@@ -61,9 +64,9 @@ class LinkedList
 
 
   def prepend(data)
-    # if validate_input(data) == false 
-    #   return 
-    # end
+    if validate_input(data) == false 
+      return 
+    end
     #creates new note with the data passed as an argument to prepend
     new_node = Node.new(data)
     #sets the new node as having a next node of the head 
@@ -182,11 +185,15 @@ class LinkedList
   end
   # Tried this per Allan's suggestion but haven't gotten it to work yet. 
   # Will implement in append and prepend if possible 
-  # def validate_input(data)
-  #   valid_sounds = ["tee", "dee", "deep", "bop", "boop", "la", "na", "woo", "shi", "shu", "blop", "suu", "plop", "dop", "dip", "doop"]
+  def validate_input(data)
+    valid_sounds = ["tee", "dee", "deep", "bop", "boop", "la", "na", "woo", "shi", "shu", "blop", "suu", "plop", "dop", "dip", "doop", "doo", "ditt", "hoo", "shibby", "sling", "shee", "shaa", "shoo"]
 
-  #   valid_input = valid_sounds.any? do |sound|
-  #     true if sound == data
-  #   end
-  # end
+    valid_sounds.any? do |sound|
+      if sound == data
+        true
+      else
+        false 
+      end
+    end
+  end
 end

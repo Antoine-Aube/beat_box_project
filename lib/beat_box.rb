@@ -9,8 +9,7 @@ class BeatBox
     @list = LinkedList.new
     @rate = 500 
     @voice = "Boing" 
-    @valid_inputs = ["tee", "dee", "deep", "bop", "boop", "la", "na", "doo", "ditt", "woo", "hoo", "shu"]
-    append(beat) if beat != nil
+    append(beat) if beat != nil 
   end
 
   def append(data)
@@ -61,6 +60,6 @@ class BeatBox
   end
 
   def play
-    `say -r #{@rate} -v #{@voice} #{self.list.to_string} `
+    `say -r #{@rate} -v #{@voice} #{@list.to_string} `
   end
 end 
