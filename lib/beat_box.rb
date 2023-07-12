@@ -3,6 +3,7 @@ require_relative 'list.rb'
 
 class BeatBox
   attr_reader :list
+  
   def initialize(beat = nil)
     @list = LinkedList.new
     @rate = 500 
